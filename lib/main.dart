@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/CircleIcon.dart';
+
 void main() => runApp(MyApp());
 
 /*
@@ -32,10 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final title = 'మంత్ర సమాహారము';
 
-    Color gradientStart =
-        Colors.deepPurple[700]; //Change start gradient color here
-    Color gradientEnd = Colors.purple[500]; //Change end gradient color here
-
     return MaterialApp(
       title: title,
       theme: ThemeData(fontFamily: 'Montserrat', primaryColor: Colors.cyan),
@@ -47,58 +45,17 @@ class MyApp extends StatelessWidget {
           title: Text(title, style: TextStyle(color: Colors.black38)),
         ),
         body: new Container(
-          margin: new EdgeInsets.only(top: 50.0),
+          margin: new EdgeInsets.only(top: 40.0),
           child: GridView.count(
             // Create a grid with 2 columns. If you change the scrollDirection to
             // horizontal, this would produce 2 rows.
             crossAxisCount: 3,
             children: List.generate(12, (index) {
-              return new DebugUiPage();
+              return new CircleIcon();
             }),
           ),
         ),
       ),
-    );
-  }
-}
-
-class DebugUiPage extends StatefulWidget {
-  DebugUiPage({Key key}) : super(key: key);
-
-  @override
-  _DebugUiPageState createState() => new _DebugUiPageState();
-}
-
-class _DebugUiPageState extends State<DebugUiPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Center(
-/*        child: new Container(
-        decoration: new BoxDecoration(
-        color: Colors.purple,
-        gradient: new LinearGradient(
-        colors: [Colors.red, Colors.cyan],
-        begin: Alignment.centerRight,
-        end: Alignment.centerLeft
-    ),
-    ),*/
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircleAvatar(
-                backgroundImage: AssetImage("assets/images/om.jpg"),
-                radius: 30),
-            SizedBox(height: 10),
-            Text(
-              "Chocolate",
-              style: TextStyle(color: Colors.black38),
-            ),
-          ],
-        ),
-      ),
-      /* ),*/
     );
   }
 }
