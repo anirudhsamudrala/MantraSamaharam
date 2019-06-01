@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
             // horizontal, this would produce 2 rows.
             crossAxisCount: 3,
             children: List.generate(12, (index) {
-              return new CircleIcon();
+              return new CircleIcon(iconImage:"assets/images/om.jpg" ,iconText: "my text");
             }),
           ),
         ),
