@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_app/utils/databasehelper.dart';
+import 'package:flutter_app/utils/dbhelper.dart';
 import 'widgets/CircleIcon.dart';
+import 'package:flutter_app/models/menu.dart';
+import 'dart:async';
+import 'package:flutter_app/models/menu.dart';
 
+/*
 void main() => runApp(MyApp());
+*/
+Future main() async {
 
+  List menus;
+  var db = new DBHelper();
+
+  await db.saveMenu(new Menu("om", "assets/images/om.jpg"));
+  await db.saveMenu(new Menu("om1", "assets/images/ganesha.png"));
+  await db.saveMenu(new Menu("om2", "assets/images/pooja.png"));
+  print('=== getAllNotes() ===');
+  menus = await db.getAllMenu();
+
+  runApp(MyApp(menus));
+}
 /*
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -30,17 +48,21 @@ class MyApp extends StatelessWidget {
 */
 
 class MyApp extends StatelessWidget {
+
+final List menuList;
+const MyApp(this.menuList);
+
   @override
   Widget build(BuildContext context) {
     final title = 'మంత్ర సమాహారము';
+
+
 
     return MaterialApp(
       title: title,
       theme: ThemeData(fontFamily: 'Montserrat', primaryColor: Colors.cyan),
       home: Scaffold(
-/*
-        backgroundColor: Colors.cyan,
-*/
+
         appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),
         ),
@@ -50,12 +72,14 @@ class MyApp extends StatelessWidget {
             // Create a grid with 2 columns. If you change the scrollDirection to
             // horizontal, this would produce 2 rows.
             crossAxisCount: 3,
-            children: List.generate(12, (index) {
-              return new CircleIcon(iconImage:"assets/images/om.jpg" ,iconText: "my text");
+           children: List.generate(menuList.length, (index) {
+              return new CircleIcon(
+                  iconImage: menuList[index].map((x) => x.imagePath), iconText: menuList[index].map((x) => x.title));
             }),
-          ),
+            ),
         ),
       ),
     );
   }
+
 }
