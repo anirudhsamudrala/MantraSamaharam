@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'widgets/CircleIcon.dart';
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final title = 'మంత్ర సమాహారము';
@@ -33,9 +33,42 @@ class MyApp extends StatelessWidget {
                       crossAxisCount: 3,
                     ),
                     itemBuilder: (BuildContext context, int index) {
-                      return CircleIcon(
+                      return new GestureDetector(
+                          child: new CircleIcon(
+                              iconImage: menus[index]['iconImage'],
+                              iconText: menus[index]['iconText']
+                          ),
+                      onTap: () {
+                        showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            // ignore: deprecated_member_use
+                            child: new CupertinoAlertDialog(
+                              title: new Column(
+                                children: <Widget>[
+                                  new Text("GridView"),
+                                  new Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                  ),
+                                ],
+                              ),
+                              content: new Text( menus[index]['iconText']),
+                              actions: <Widget>[
+                                new FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: new Text("OK"))
+                              ],
+                            ));
+                      }
+                      );
+
+/*                      return CircleIcon(
                           iconImage: menus[index]['iconImage'],
-                          iconText: menus[index]['iconText']);
+                          iconText: menus[index]['iconText']
+                      );*/
                     },
                   );
                 }),

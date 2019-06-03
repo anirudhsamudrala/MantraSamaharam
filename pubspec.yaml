@@ -51,6 +51,11 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
     - assets/images/om.jpg
+    - assets/images/ganesha.png
+    - assets/images/pooja.png
+    - assets/images/sandhya.png
+    - assets/images/venki.png
+    - assets/images/vishnu.png
     - assets/data/menu.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

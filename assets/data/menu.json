@@ -12,16 +12,21 @@
   {
     "id": "1",
     "iconText": "Om",
-    "iconImage": "assets/images/om.jpg"
+    "iconImage": "assets/images/pooja.png"
   },
   {
     "id": "1",
     "iconText": "Om",
-    "iconImage": "assets/images/om.jpg"
+    "iconImage": "assets/images/sandhya.png"
   },
   {
     "id": "1",
     "iconText": "Om",
-    "iconImage": "assets/images/om.jpg"
+    "iconImage": "assets/images/venki.png"
+  },
+  {
+    "id": "1",
+    "iconText": "Om",
+    "iconImage": "assets/images/vishnu.png"
   }
 ]
