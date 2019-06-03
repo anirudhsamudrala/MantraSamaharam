@@ -54,11 +54,11 @@ class DBHelper {
 
   Future<List> getAllMenu() async {
     var dbClient = await db;
-    var result = await dbClient
-        .query(tableMenu, columns: [columnId, columnTitle, columnImagePath]);
-//    var result = await dbClient.rawQuery('SELECT * FROM $tableNote');
+    //var result = await dbClient
+      //  .query(tableMenu, columns: [columnId, columnTitle, columnImagePath]);
+  var result = await dbClient.rawQuery('SELECT * FROM $tableMenu');
 
-    return result.toList();
+    return result;
   }
 
   Future<int> getCount() async {
