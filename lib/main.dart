@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'widgets/CircleIcon.dart';
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
+import 'widgets/ListPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,12 +13,30 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: title,
+/*
       theme: ThemeData(fontFamily: 'Montserrat', primaryColor: Colors.cyan),
+*/
+      theme: new ThemeData(primaryColor: Colors.amber),
       home: Scaffold(
-        appBar: AppBar(
+        /*    appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),
+        ),*/
+        appBar:
+        AppBar(
+          elevation: 0.1,
+          backgroundColor: Colors.amberAccent,
+          title: Text(title),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.list),
+              onPressed: () {},
+            )
+          ],
         ),
         body: new Container(
+/*
+          color: Color.fromRGBO(58, 66, 86, 1.0),
+*/
           child: new Center(
             child: new FutureBuilder(
                 future: DefaultAssetBundle.of(context)
@@ -36,39 +55,13 @@ class MyApp extends StatelessWidget {
                       return new GestureDetector(
                           child: new CircleIcon(
                               iconImage: menus[index]['iconImage'],
-                              iconText: menus[index]['iconText']
-                          ),
-                      onTap: () {
-                        showDialog(
-                            barrierDismissible: false,
-                            context: context,
-                            // ignore: deprecated_member_use
-                            child: new CupertinoAlertDialog(
-                              title: new Column(
-                                children: <Widget>[
-                                  new Text("GridView"),
-                                  new Icon(
-                                    Icons.favorite,
-                                    color: Colors.red,
-                                  ),
-                                ],
-                              ),
-                              content: new Text( menus[index]['iconText']),
-                              actions: <Widget>[
-                                new FlatButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: new Text("OK"))
-                              ],
-                            ));
-                      }
-                      );
-
-/*                      return CircleIcon(
-                          iconImage: menus[index]['iconImage'],
-                          iconText: menus[index]['iconText']
-                      );*/
+                              iconText: menus[index]['iconText']),
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    ListPage(title: 'Lessons'),
+                              )));
                     },
                   );
                 }),
