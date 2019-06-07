@@ -1,16 +1,17 @@
 import 'package:flutter_app/models/lesson.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_app/models/Models.dart';
 class DetailPage extends StatelessWidget {
-  final Lesson lesson;
-  DetailPage({Key key, this.lesson}) : super(key: key);
+ /* final Lesson lesson;*/
+  final Mantra mantra;
+  DetailPage({Key key, this.mantra}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final levelIndicator = Container(
       child: Container(
         child: LinearProgressIndicator(
             backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-            value: lesson.indicatorValue,
+            value: 2, /* remove this later */
             valueColor: AlwaysStoppedAnimation(Colors.green)),
       ),
     );
@@ -21,7 +22,7 @@ class DetailPage extends StatelessWidget {
           border: new Border.all(color: Colors.white),
           borderRadius: BorderRadius.circular(5.0)),
       child: new Text(
-        "\$" + lesson.price.toString(),
+        "\$" + '2', /* remove this later*/
         style: TextStyle(color: Colors.white),
       ),
     );
@@ -29,7 +30,7 @@ class DetailPage extends StatelessWidget {
     final topContentText = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SizedBox(height: 120.0),
+        SizedBox(height: 100.0),
         Icon(
           Icons.directions_car,
           color: Colors.white,
@@ -41,7 +42,7 @@ class DetailPage extends StatelessWidget {
         ),
         SizedBox(height: 10.0),
         Text(
-          lesson.title,
+          mantra.title,
           style: TextStyle(color: Colors.white, fontSize: 45.0),
         ),
         SizedBox(height: 30.0),
@@ -54,7 +55,7 @@ class DetailPage extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
-                      lesson.level,
+                      mantra.title, /* remove this later*/
                       style: TextStyle(color: Colors.white),
                     ))),
             Expanded(flex: 1, child: coursePrice)
@@ -76,7 +77,7 @@ class DetailPage extends StatelessWidget {
             )),
         Container(
           height: MediaQuery.of(context).size.height * 0.5,
-          padding: EdgeInsets.all(40.0),
+          padding: EdgeInsets.all(10.0),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)),
           child: Center(
@@ -97,7 +98,7 @@ class DetailPage extends StatelessWidget {
     );
 
     final bottomContentText = Text(
-      lesson.content,
+      mantra.content,
       style: TextStyle(fontSize: 18.0),
     );
     final readButton = Container(
@@ -111,7 +112,7 @@ class DetailPage extends StatelessWidget {
         ));
     final bottomContent = Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(40.0),
+      padding: EdgeInsets.all(10.0),
       child: Center(
         child: Column(
           children: <Widget>[bottomContentText, readButton],

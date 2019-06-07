@@ -3,7 +3,7 @@ import 'widgets/CircleIcon.dart';
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'widgets/ListPage.dart';
-
+import 'package:flutter_app/models/Models.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           child: new Center(
             child: new FutureBuilder(
                 future: DefaultAssetBundle.of(context)
-                    .loadString('assets/data/menu.json'),
+                    .loadString('assets/data/telugu1.json'),
                 builder: (context, snapshot) {
                   var menus = json.decode(snapshot.data.toString());
 
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    ListPage(title: 'Lessons'),
+                                    ListPage(mantras: MenuItem.fromJson(menus[index]).mantras),
                               )));
                     },
                   );

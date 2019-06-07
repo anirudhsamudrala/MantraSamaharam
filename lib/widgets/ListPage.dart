@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/lesson.dart';
 import 'package:flutter_app/widgets/DetailPage.dart';
+import 'package:flutter_app/models/Models.dart';
 class ListPage extends StatefulWidget {
-  ListPage({Key key, this.title}) : super(key: key);
 
+/*
+  final List jsondata;
+*/
+  final List<Mantra> mantras;
+  ListPage({Key key, this.mantras}) : super(key: key);
+
+/*
+  ListPage({Key key, this.title}) : super(key: key);
+*/
+
+/*
   final String title;
+*/
 
   @override
   _ListPageState createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
-  List lessons;
+ /* List lessons;*/
 
   @override
   void initState() {
-    lessons = getLessons();
+ /*   lessons = getLessons();*/
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    ListTile makeListTile(Lesson lesson) => ListTile(
+    ListTile makeListTile(Mantra mantra) => ListTile(
       contentPadding:
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 2.0),
       leading: Container(
@@ -33,7 +45,7 @@ class _ListPageState extends State<ListPage> {
             backgroundImage: AssetImage("assets/images/om.jpg"),radius: 30),
       ),
       title: Text(
-        lesson.title,
+        mantra.title,
         style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w300),
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
@@ -46,14 +58,14 @@ class _ListPageState extends State<ListPage> {
                 // tag: 'hero',
                 child: LinearProgressIndicator(
                     backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                    value: lesson.indicatorValue,
+                    value: 2, /* remove this later*/
                     valueColor: AlwaysStoppedAnimation(Colors.green)),
               )),
           Expanded(
             flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 10.0),
-                child: Text(lesson.level,
+                child: Text(mantra.title,
                     style: TextStyle(color: Colors.black38))),
           )
         ],
@@ -64,17 +76,17 @@ class _ListPageState extends State<ListPage> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailPage(lesson: lesson)));
+                builder: (context) => DetailPage(mantra: mantra)));
       },
     );
 
-    Card makeCard(Lesson lesson) => Card(
+    Card makeCard(Mantra mantra) => Card(
       elevation: 8.0,
       margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       child: Container(
         decoration: BoxDecoration(borderRadius:
         BorderRadius.circular(40.0),color: Colors.white),
-        child: makeListTile(lesson),
+        child: makeListTile(mantra),
 
       ),
     );
@@ -86,9 +98,9 @@ class _ListPageState extends State<ListPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: lessons.length,
+        itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(lessons[index]);
+          return makeCard(widget.mantras.elementAt(index));
         },
       ),
     );
@@ -124,7 +136,7 @@ class _ListPageState extends State<ListPage> {
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.amberAccent,
-      title: Text(widget.title),
+      title: Text("Title New"),
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.list),
