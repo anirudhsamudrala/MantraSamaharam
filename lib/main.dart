@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           child: new Center(
             child: new FutureBuilder(
                 future: DefaultAssetBundle.of(context)
-                    .loadString('assets/data/telugu1.json'),
+                    .loadString('assets/data/telugu.json'),
                 builder: (context, snapshot) {
                   var menus = json.decode(snapshot.data.toString());
 
