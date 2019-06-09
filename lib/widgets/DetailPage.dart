@@ -1,8 +1,6 @@
-import 'package:flutter_app/models/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/Models.dart';
 class DetailPage extends StatelessWidget {
- /* final Lesson lesson;*/
   final Mantra mantra;
   DetailPage({Key key, this.mantra}) : super(key: key);
   @override
@@ -34,7 +32,7 @@ class DetailPage extends StatelessWidget {
         Icon(
           Icons.directions_car,
           color: Colors.white,
-          size: 40.0,
+          size: 20.0,
         ),
         Container(
           width: 90.0,
@@ -43,13 +41,15 @@ class DetailPage extends StatelessWidget {
         SizedBox(height: 10.0),
         Text(
           mantra.title,
-          style: TextStyle(color: Colors.white, fontSize: 45.0),
+          style: TextStyle(color: Colors.white, fontSize: 30.0),
         ),
-        SizedBox(height: 30.0),
+        SizedBox(height: 25.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+/*
             Expanded(flex: 1, child: levelIndicator),
+*/
             Expanded(
                 flex: 6,
                 child: Padding(
@@ -71,7 +71,7 @@ class DetailPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.5,
             decoration: new BoxDecoration(
               image: new DecorationImage(
-                image: new AssetImage("drive-steering-wheel.jpg"),
+                image: new AssetImage(mantra.thumbnail),
                 fit: BoxFit.cover,
               ),
             )),
@@ -99,10 +99,10 @@ class DetailPage extends StatelessWidget {
 
     final bottomContentText = Text(
       mantra.content,
-      style: TextStyle(fontSize: 18.0),
+      style: TextStyle(fontSize: 15.0),
     );
     final readButton = Container(
-        padding: EdgeInsets.symmetric(vertical: 16.0),
+        padding: EdgeInsets.symmetric(vertical: 10.0),
         width: MediaQuery.of(context).size.width,
         child: RaisedButton(
           onPressed: () => {},
@@ -115,15 +115,14 @@ class DetailPage extends StatelessWidget {
       padding: EdgeInsets.all(10.0),
       child: Center(
         child: Column(
-          children: <Widget>[bottomContentText, readButton],
+          children: <Widget>[bottomContentText],
         ),
       ),
     );
-
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: <Widget>[topContent, bottomContent],
       ),
     );
-  }
+   }
 }

@@ -2,9 +2,7 @@ class MenuItem {
   String id;
   String iconText;
   String iconImage ;
-/*
-  final MantraList mantraList;
-*/
+
   final List<Mantra> mantras;
 
   MenuItem({this.id,this.iconText,this.iconImage,this.mantras});
@@ -27,14 +25,17 @@ class MenuItem {
 class Mantra{
   final String title;
   final String content;
-  Mantra(this.title,this.content);
+  final String thumbnail;
+  Mantra(this.title,this.content,this.thumbnail);
   Mantra.fromJson(Map<String, dynamic> json)
       : title = json['title'],
-        content = json['content'];
+        content = json['content'],
+        thumbnail=json['thumbnail'];
   Map<String, dynamic> toJson() =>
       {
         'title': title,
-        'content': content
+        'content': content,
+        'thumbnail':thumbnail
       };
 }
 

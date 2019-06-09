@@ -4,30 +4,17 @@ import 'package:flutter_app/widgets/DetailPage.dart';
 import 'package:flutter_app/models/Models.dart';
 class ListPage extends StatefulWidget {
 
-/*
-  final List jsondata;
-*/
   final List<Mantra> mantras;
   ListPage({Key key, this.mantras}) : super(key: key);
-
-/*
-  ListPage({Key key, this.title}) : super(key: key);
-*/
-
-/*
-  final String title;
-*/
 
   @override
   _ListPageState createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
- /* List lessons;*/
 
   @override
   void initState() {
- /*   lessons = getLessons();*/
     super.initState();
   }
 
@@ -42,7 +29,7 @@ class _ListPageState extends State<ListPage> {
             border: new Border(
                 right: new BorderSide(width: 1.0, color: Colors.white24))),
         child: CircleAvatar(
-            backgroundImage: AssetImage("assets/images/om.jpg"),radius: 30),
+            backgroundImage: AssetImage(mantra.thumbnail),radius: 30),
       ),
       title: Text(
         mantra.title,
@@ -98,7 +85,7 @@ class _ListPageState extends State<ListPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: 10,
+        itemCount: widget.mantras.length ,
         itemBuilder: (BuildContext context, int index) {
           return makeCard(widget.mantras.elementAt(index));
         },
@@ -154,58 +141,4 @@ class _ListPageState extends State<ListPage> {
       bottomNavigationBar: makeBottom,
     );
   }
-}
-
-List getLessons() {
-  return [
-    Lesson(
-        title: "Introduction to Driving",
-        level: "Beginner",
-        indicatorValue: 0.33,
-        price: 20,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
-    Lesson(
-        title: "Observation at Junctions",
-        level: "Beginner",
-        indicatorValue: 0.33,
-        price: 50,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
-    Lesson(
-        title: "Reverse parallel Parking",
-        level: "Intermidiate",
-        indicatorValue: 0.66,
-        price: 30,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
-    Lesson(
-        title: "Reversing around the corner",
-        level: "Intermidiate",
-        indicatorValue: 0.66,
-        price: 30,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
-    Lesson(
-        title: "Incorrect Use of Signal",
-        level: "Advanced",
-        indicatorValue: 1.0,
-        price: 50,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
-    Lesson(
-        title: "Engine Challenges",
-        level: "Advanced",
-        indicatorValue: 1.0,
-        price: 50,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
-    Lesson(
-        title: "Self Driving Car",
-        level: "Advanced",
-        indicatorValue: 1.0,
-        price: 50,
-        content:
-        "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed.  ")
-  ];
 }
