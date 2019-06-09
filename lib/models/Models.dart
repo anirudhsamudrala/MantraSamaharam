@@ -24,18 +24,25 @@ class MenuItem {
 
 class Mantra{
   final String title;
-  final String content;
+  final String subtitle;
   final String thumbnail;
-  Mantra(this.title,this.content,this.thumbnail);
+  final String content;
+  final String subcontent;
+  Mantra(this.title,this.subtitle,this.thumbnail,this.content,this.subcontent);
   Mantra.fromJson(Map<String, dynamic> json)
       : title = json['title'],
+        subtitle=json['subtitle'],
+        thumbnail=json['thumbnail'],
         content = json['content'],
-        thumbnail=json['thumbnail'];
+        subcontent=json['subcontent'];
+
   Map<String, dynamic> toJson() =>
       {
         'title': title,
+        'subtitle':subtitle,
+        'thumbnail':thumbnail,
         'content': content,
-        'thumbnail':thumbnail
+        'subcontent':subcontent
       };
 }
 

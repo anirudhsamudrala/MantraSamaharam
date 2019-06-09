@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/Models.dart';
+
 class DetailPage extends StatelessWidget {
   final Mantra mantra;
   DetailPage({Key key, this.mantra}) : super(key: key);
@@ -9,7 +10,8 @@ class DetailPage extends StatelessWidget {
       child: Container(
         child: LinearProgressIndicator(
             backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-            value: 2, /* remove this later */
+            value: 2,
+            /* remove this later */
             valueColor: AlwaysStoppedAnimation(Colors.green)),
       ),
     );
@@ -20,7 +22,8 @@ class DetailPage extends StatelessWidget {
           border: new Border.all(color: Colors.white),
           borderRadius: BorderRadius.circular(5.0)),
       child: new Text(
-        "\$" + '2', /* remove this later*/
+        "\$" + '2',
+        /* remove this later*/
         style: TextStyle(color: Colors.white),
       ),
     );
@@ -28,37 +31,28 @@ class DetailPage extends StatelessWidget {
     final topContentText = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SizedBox(height: 100.0),
-        Icon(
-          Icons.directions_car,
-          color: Colors.white,
-          size: 20.0,
-        ),
-        Container(
-          width: 90.0,
-          child: new Divider(color: Colors.green),
-        ),
+        SizedBox(height: 80.0),
         SizedBox(height: 10.0),
         Text(
           mantra.title,
           style: TextStyle(color: Colors.white, fontSize: 30.0),
         ),
+        Container(
+          width: 150.0,
+          child: new Divider(color: Colors.green),
+        ),
         SizedBox(height: 25.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-/*
-            Expanded(flex: 1, child: levelIndicator),
-*/
             Expanded(
                 flex: 6,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
-                      mantra.title, /* remove this later*/
+                      mantra.subcontent,
                       style: TextStyle(color: Colors.white),
-                    ))),
-            Expanded(flex: 1, child: coursePrice)
+                    )))
           ],
         ),
       ],
@@ -108,7 +102,7 @@ class DetailPage extends StatelessWidget {
           onPressed: () => {},
           color: Color.fromRGBO(58, 66, 86, 1.0),
           child:
-          Text("TAKE THIS LESSON", style: TextStyle(color: Colors.white)),
+              Text("TAKE THIS LESSON", style: TextStyle(color: Colors.white)),
         ));
     final bottomContent = Container(
       width: MediaQuery.of(context).size.width,
@@ -124,5 +118,5 @@ class DetailPage extends StatelessWidget {
         children: <Widget>[topContent, bottomContent],
       ),
     );
-   }
+  }
 }

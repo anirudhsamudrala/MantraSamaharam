@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 /*
       theme: ThemeData(fontFamily: 'Montserrat', primaryColor: Colors.cyan),
 */
-      theme: new ThemeData(primaryColor: Colors.amber),
+      theme: new ThemeData(fontFamily: 'NTR',primaryColor: Colors.amber),
       home: Scaffold(
         /*    appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         AppBar(
           elevation: 0.1,
           backgroundColor: Colors.amberAccent,
-          title: Text(title),
+          title: Text(title,style: TextStyle(fontFamily: 'NTR'), ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.list),
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    ListPage(mantras: MenuItem.fromJson(menus[index]).mantras),
+                                    ListPage(mantras: MenuItem.fromJson(menus[index]).mantras,title:menus[index]['iconText']),
                               )));
                     },
                   );

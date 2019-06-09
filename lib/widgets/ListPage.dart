@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/models/lesson.dart';
 import 'package:flutter_app/widgets/DetailPage.dart';
 import 'package:flutter_app/models/Models.dart';
 class ListPage extends StatefulWidget {
 
   final List<Mantra> mantras;
-  ListPage({Key key, this.mantras}) : super(key: key);
+  final String title;
+  ListPage({Key key, this.mantras,this.title}) : super(key: key);
 
   @override
   _ListPageState createState() => _ListPageState();
@@ -33,7 +33,7 @@ class _ListPageState extends State<ListPage> {
       ),
       title: Text(
         mantra.title,
-        style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w300),
+        style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400),
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
@@ -41,24 +41,25 @@ class _ListPageState extends State<ListPage> {
         children: <Widget>[
           Expanded(
               flex: 1,
-              child: Container(
-                // tag: 'hero',
-                child: LinearProgressIndicator(
-                    backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                    value: 2, /* remove this later*/
-                    valueColor: AlwaysStoppedAnimation(Colors.green)),
-              )),
+              child:
+              Container(
+                child:Icon(Icons.wb_sunny, color: Colors.black38, size: 20.0),
+              )
+          ),
           Expanded(
             flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 10.0),
-                child: Text(mantra.title,
+                child: Text(mantra.subtitle,
                     style: TextStyle(color: Colors.black38))),
           )
         ],
       ),
       trailing:
+/*
       Icon(Icons.chevron_right, color: Colors.black38, size: 30.0),
+*/
+      Icon(Icons.launch, color: Colors.black38, size: 25.0),
       onTap: () {
         Navigator.push(
             context,
@@ -123,7 +124,7 @@ class _ListPageState extends State<ListPage> {
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.amberAccent,
-      title: Text("Title New"),
+      title: Text(widget.title),
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.list),
