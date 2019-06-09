@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'widgets/ListPage.dart';
 import 'package:flutter_app/models/Models.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,9 +14,6 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: title,
-/*
-      theme: ThemeData(fontFamily: 'Montserrat', primaryColor: Colors.cyan),
-*/
       theme: new ThemeData(fontFamily: 'NTR',primaryColor: Colors.amber),
       home: Scaffold(
         /*    appBar: AppBar(
@@ -24,8 +22,8 @@ class MyApp extends StatelessWidget {
         appBar:
         AppBar(
           elevation: 0.1,
-          backgroundColor: Colors.amberAccent,
-          title: Text(title,style: TextStyle(fontFamily: 'NTR'), ),
+          backgroundColor: Colors.blueGrey,
+          title: Text(title,style: TextStyle(fontFamily: 'NTR', color:Colors.white), ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.list),

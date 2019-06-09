@@ -33,7 +33,7 @@ class _ListPageState extends State<ListPage> {
       ),
       title: Text(
         mantra.title,
-        style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400),
+        style: TextStyle(color: Colors.black,fontSize: 18, fontWeight: FontWeight.w500),
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
@@ -43,7 +43,7 @@ class _ListPageState extends State<ListPage> {
               flex: 1,
               child:
               Container(
-                child:Icon(Icons.wb_sunny, color: Colors.black38, size: 20.0),
+                child:Icon(Icons.wb_sunny, color: Colors.red, size: 20.0),
               )
           ),
           Expanded(
@@ -51,7 +51,7 @@ class _ListPageState extends State<ListPage> {
             child: Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(mantra.subtitle,
-                    style: TextStyle(color: Colors.black38))),
+                    style: TextStyle(color: Colors.black54,fontSize: 15))),
           )
         ],
       ),
@@ -123,11 +123,14 @@ class _ListPageState extends State<ListPage> {
     );
     final topAppBar = AppBar(
       elevation: 0.1,
-      backgroundColor: Colors.amberAccent,
-      title: Text(widget.title),
+      backgroundColor: Colors.blueGrey,
+      title: Text(widget.title,
+        style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w500),
+      ),
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.list),
+          color:Colors.white,
           onPressed: () {},
         )
       ],

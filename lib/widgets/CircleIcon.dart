@@ -21,11 +21,12 @@ class _CircleIcon extends State<CircleIcon> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CircleAvatar(
-                backgroundImage: AssetImage(widget.iconImage),radius: 40),
+                backgroundImage: AssetImage(widget.iconImage),radius: 38),
             SizedBox(height: 10),
             Text(
               widget.iconText,
-              style: TextStyle(color: Colors.black38),
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black,fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ],
         ),

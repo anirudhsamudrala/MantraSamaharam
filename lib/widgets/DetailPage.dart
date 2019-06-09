@@ -39,7 +39,7 @@ class DetailPage extends StatelessWidget {
         ),
         Container(
           width: 150.0,
-          child: new Divider(color: Colors.green),
+          child: new Divider(color: Colors.red),
         ),
         SizedBox(height: 25.0),
         Row(
@@ -51,7 +51,7 @@ class DetailPage extends StatelessWidget {
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
                       mantra.subcontent,
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white,fontSize: 20.0),
                     )))
           ],
         ),
@@ -80,7 +80,7 @@ class DetailPage extends StatelessWidget {
         ),
         Positioned(
           left: 8.0,
-          top: 60.0,
+          top: 30.0,
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -93,7 +93,7 @@ class DetailPage extends StatelessWidget {
 
     final bottomContentText = Text(
       mantra.content,
-      style: TextStyle(fontSize: 15.0),
+      style: TextStyle(fontSize: 20.0),
     );
     final readButton = Container(
         padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -113,7 +113,23 @@ class DetailPage extends StatelessWidget {
         ),
       ),
     );
+    final topAppBar = AppBar(
+      elevation: 0.1,
+      backgroundColor: Colors.blueGrey,
+      title: Text(mantra.title,
+        style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w500),
+      ),
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.list),
+          onPressed: () {},
+        )
+      ],
+    );
     return Scaffold(
+/*
+      appBar:topAppBar,
+*/
       body: ListView(
         children: <Widget>[topContent, bottomContent],
       ),
