@@ -56,8 +56,10 @@ flutter:
     - assets/images/venki.png
     - assets/images/vishnu.png
     - assets/images/devi.png
+    - assets/images/devi_1.png
     - assets/images/ganesha_main.png
     - assets/images/kumbh.png
+    - assets/images/krishna_2.png
     - assets/data/telugu.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
