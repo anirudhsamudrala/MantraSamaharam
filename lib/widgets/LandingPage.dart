@@ -1,21 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/LandingPage.dart';
-import 'package:flutter/cupertino.dart';
-void main() => runApp(MyApp());
+import 'dart:convert';
 
-class MyApp extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_app/models/Models.dart';
+import 'package:flutter_app/widgets/CircleIcon.dart';
+import 'package:flutter_app/widgets/ListPage.dart';
+
+class LandingPage extends StatelessWidget {
+  final String mantraFile;
+
+  final title = 'మంత్ర సమాహారము';
+  LandingPage({Key key, this.mantraFile}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final title = 'మంత్ర సమాహారము';
-
-    return MaterialApp(
-      title: title,
-      theme: new ThemeData(fontFamily: 'NTR',primaryColor: Colors.amber),
-      home:new LandingPage(mantraFile:"telugu.json"),
-     /* Scaffold(
-        *//*    appBar: AppBar(
+    return Scaffold(
+/*
+      appBar:topAppBar,
+*/
+      body: Scaffold(
+        /*    appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),
-        ),*//*
+        ),*/
         appBar:
         AppBar(
           elevation: 0.1,
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
           child: new Center(
             child: new FutureBuilder(
                 future: DefaultAssetBundle.of(context)
-                    .loadString('assets/data/telugu.json'),
+                    .loadString('assets/data/'+this.mantraFile),
                 builder: (context, snapshot) {
                   var menus = json.decode(snapshot.data.toString());
 
@@ -59,7 +63,7 @@ class MyApp extends StatelessWidget {
                 }),
           ),
         ),
-      ),*/
+      ),
     );
   }
 }
