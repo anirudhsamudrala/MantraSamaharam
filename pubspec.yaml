@@ -52,12 +52,18 @@ flutter:
   assets:
     - assets/images/om.jpg
     - assets/images/ganesha.png
+    - assets/images/balaji.jpg
+    - assets/images/hanuman.jpg
+    - assets/images/vishnu_1.jpg
+    - assets/images/parvati.jpg
     - assets/images/pooja.png
     - assets/images/sandhya.png
     - assets/images/venki.png
     - assets/images/vishnu.png
     - assets/images/devi.png
-    - assets/images/devi_1.png
+    - assets/images/devi_2.jpg
+    - assets/images/devi.jpg
+    - assets/images/gita.png
     - assets/images/ganesha_main.png
     - assets/images/launcher_icon.png
     - assets/images/krishna_2.png
