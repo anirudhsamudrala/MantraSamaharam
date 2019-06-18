@@ -10,12 +10,14 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: title,
-      theme: new ThemeData(fontFamily: 'NTR',primaryColor: Colors.amber),
+      theme: new ThemeData(primaryColor: Colors.amber),
       home:new LandingPage(mantraFile:"telugu.json"),
+
      /* Scaffold(
         *//*    appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),
-        ),*//*
+        ),*/
+      /*
         appBar:
         AppBar(
           elevation: 0.1,

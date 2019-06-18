@@ -26,8 +26,7 @@ class _CircleIcon extends State<CircleIcon> {
             Text(
           widget.iconText,
           textAlign: TextAlign.center,
-          softWrap: true,
-          style: TextStyle(color: Colors.black,fontSize: 16, fontWeight: FontWeight.w500),
+          style: TextStyle(fontFamily:"NTR",color: Colors.black,fontSize: 16, fontWeight: FontWeight.w500),
         ),
           ],
         ),

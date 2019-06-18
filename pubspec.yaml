@@ -59,7 +59,6 @@ flutter:
     - assets/images/pooja.png
     - assets/images/sandhya.png
     - assets/images/venki.png
-    - assets/images/vishnu.png
     - assets/images/devi.png
     - assets/images/devi_2.jpg
     - assets/images/devi.jpg
@@ -104,6 +103,13 @@ flutter:
     - family: NTR
       fonts:
         - asset: fonts/NTR-Regular.ttf
+    - family: Suranna
+      fonts:
+        - asset: fonts/Suranna-Regular.ttf
+    - family: Mallanna
+      fonts:
+        - asset: fonts/Mallanna-Regular.ttf
+
     # style: bold
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

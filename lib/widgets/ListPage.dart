@@ -33,7 +33,7 @@ class _ListPageState extends State<ListPage> {
       ),
       title: Text(
         mantra.title,
-        style: TextStyle(color: Colors.black,fontSize: 18, fontWeight: FontWeight.w500),
+        style: TextStyle(fontFamily:"NTR",color: Colors.black,fontSize: 18, fontWeight: FontWeight.w500),
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
@@ -51,7 +51,7 @@ class _ListPageState extends State<ListPage> {
             child: Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(mantra.subtitle,
-                    style: TextStyle(color: Colors.black54,fontSize: 15))),
+                    style: TextStyle(fontFamily:"NTR",color: Colors.black54,fontSize: 15))),
           )
         ],
       ),
@@ -125,7 +125,7 @@ class _ListPageState extends State<ListPage> {
       elevation: 0.1,
       backgroundColor: Colors.blueGrey,
       title: Text(widget.title,
-        style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w500),
+        style: TextStyle(fontFamily:"NTR",color: Colors.white,fontSize: 20, fontWeight: FontWeight.w500),
       ),
       actions: <Widget>[
         IconButton(
