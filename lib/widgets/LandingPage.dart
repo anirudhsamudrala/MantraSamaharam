@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/Models.dart';
 import 'package:flutter_app/widgets/CircleIcon.dart';
@@ -13,9 +13,6 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-/*
-      appBar:topAppBar,
-*/
       body: Scaffold(
         /*    appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),

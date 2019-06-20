@@ -50,7 +50,6 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   assets:
-    - assets/images/om.jpg
     - assets/images/ganesha.png
     - assets/images/balaji.jpg
     - assets/images/hanuman.jpg
@@ -59,14 +58,10 @@ flutter:
     - assets/images/pooja.png
     - assets/images/sandhya.png
     - assets/images/venki.png
-    - assets/images/devi.png
     - assets/images/devi_2.jpg
     - assets/images/devi.jpg
     - assets/images/gita.png
-    - assets/images/ganesha_main.png
     - assets/images/launcher_icon.png
-    - assets/images/krishna_2.png
-    - assets/images/1024.png
     - assets/data/telugu.json
     - assets/data/english.json
 
