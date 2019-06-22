@@ -1,4 +1,4 @@
-# flutter_app
+# MantraSamaharam
 
 A new Flutter application.
 
