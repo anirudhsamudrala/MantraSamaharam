@@ -60,7 +60,8 @@ class LandingPage extends StatelessWidget {
                           return new GestureDetector(
                               child: new CircleIcon(
                                   iconImage: menus[index]['iconImage'],
-                                  iconText: menus[index]['iconText']),
+                                  iconText: menus[index]['iconText']
+                              ),
                               onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
