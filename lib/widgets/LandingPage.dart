@@ -39,7 +39,7 @@ class _LandingPage extends State<LandingPage> {
       body: Scaffold(
         appBar: AppBar(
           elevation: 0.1,
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.pink[800],
           title: Text(
             title,
             style: TextStyle(fontFamily: 'NTR', color: Colors.white),

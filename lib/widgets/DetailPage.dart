@@ -18,7 +18,7 @@ class DetailPage extends StatelessWidget {
         ),
         Container(
           width: 150.0,
-          child: new Divider(color: Colors.red),
+          child: new Divider(color: Colors.white),
         ),
         SizedBox(height: 25.0),
         Row(
@@ -55,7 +55,7 @@ class DetailPage extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           padding: EdgeInsets.all(10.0),
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)),
+          decoration: BoxDecoration(color: Color.fromRGBO(173, 20, 87, .7)), /* Color.fromRGBO(58, 66, 86, .9)  Color.fromRGBO(173, 20, 87, .9)*/
           child: Center(
             child: topContentText,
           ),

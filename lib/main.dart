@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: title,
-      theme: new ThemeData(primaryColor: Colors.amber),
+      theme: new ThemeData(primaryColor: Colors.pinkAccent),
       home:new LandingPage(mantraFile:"telugu.json"),
 
      /* Scaffold(

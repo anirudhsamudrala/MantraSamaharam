@@ -45,7 +45,7 @@ class _ListPageState extends State<ListPage> {
               flex: 1,
               child:
               Container(
-                child:Icon(Icons.wb_sunny, color: Colors.red, size: 20.0),
+                child:Icon(Icons.wb_sunny, color: Colors.pink[700], size: 20.0),
               )
           ),
           Expanded(
@@ -99,7 +99,7 @@ class _ListPageState extends State<ListPage> {
     final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
-        color: Color.fromRGBO(58, 66, 86, 1.0),
+        color: Colors.pink[800],
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -125,7 +125,7 @@ class _ListPageState extends State<ListPage> {
     );
     final topAppBar = AppBar(
       elevation: 0.1,
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.pink[800],
       title: Text(widget.title,
         style: TextStyle(fontFamily:"NTR",color: Colors.white,fontSize: 20, fontWeight: FontWeight.w500),
       ),
@@ -143,8 +143,8 @@ class _ListPageState extends State<ListPage> {
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
 */
       appBar: topAppBar,
-      body: makeBody,
-      bottomNavigationBar: makeBottom,
+      body: makeBody
+      /*,bottomNavigationBar: makeBottom,*/
     );
   }
 }
