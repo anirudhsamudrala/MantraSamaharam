@@ -13,7 +13,8 @@ class DetailPage extends StatelessWidget {
         SizedBox(height: 10.0),
         Text(
           mantra.title,
-          style: TextStyle(fontFamily:"NTR",color: Colors.white, fontSize: 30.0),
+          style:
+              TextStyle(fontFamily: "NTR", color: Colors.white, fontSize: 30.0),
         ),
         Container(
           width: 150.0,
@@ -29,7 +30,10 @@ class DetailPage extends StatelessWidget {
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
                       mantra.subcontent,
-                      style: TextStyle(fontFamily:"NTR",color: Colors.white,fontSize: 20.0),
+                      style: TextStyle(
+                          fontFamily: "NTR",
+                          color: Colors.white,
+                          fontSize: 20.0),
                     )))
           ],
         ),
@@ -71,7 +75,7 @@ class DetailPage extends StatelessWidget {
 
     final bottomContentText = Text(
       mantra.content,
-      style: TextStyle(fontFamily:"NTR",fontSize: 20.0),
+      style: TextStyle(fontFamily: "NTR", fontSize: 20.0),
     );
     final bottomContent = Container(
       width: MediaQuery.of(context).size.width,

@@ -23,14 +23,16 @@ class _ListPageState extends State<ListPage> {
     ListTile makeListTile(Mantra mantra) => ListTile(
       contentPadding:
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 2.0),
-      leading: Container(
+/*      leading: Container(
         padding: EdgeInsets.only(right: 1.0),
         decoration: new BoxDecoration(
             border: new Border(
                 right: new BorderSide(width: 1.0, color: Colors.white24))),
-        child: CircleAvatar(
-            backgroundImage: AssetImage(mantra.thumbnail),radius: 30),
-      ),
+        child:
+        CircleAvatar(
+            backgroundImage: AssetImage(mantra.thumbnail),radius: 30)
+        ,
+      ),*/
       title: Text(
         mantra.title,
         style: TextStyle(fontFamily:"NTR",color: Colors.black,fontSize: 18, fontWeight: FontWeight.w500),
