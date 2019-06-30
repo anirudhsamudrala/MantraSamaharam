@@ -54,7 +54,6 @@ flutter:
     - assets/images/pooja.png
     - assets/images/launcher_icon.png
     - assets/data/telugu.json
-    - assets/data/english.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
