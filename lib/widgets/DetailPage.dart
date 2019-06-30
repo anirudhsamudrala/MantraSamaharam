@@ -47,7 +47,8 @@ class DetailPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.5,
             decoration: new BoxDecoration(
               image: new DecorationImage(
-                image: new AssetImage(mantra.thumbnail),
+                image: new NetworkImage(mantra.thumbnail),
+               /* image: new AssetImage(mantra.thumbnail),*/
                 fit: BoxFit.cover,
               ),
             )),
@@ -55,7 +56,7 @@ class DetailPage extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           padding: EdgeInsets.all(10.0),
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Color.fromRGBO(173, 20, 87, .7)), /* Color.fromRGBO(58, 66, 86, .9)  Color.fromRGBO(173, 20, 87, .9)*/
+          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)), /* Color.fromRGBO(58, 66, 86, .9)  Color.fromRGBO(173, 20, 87, .9)*/
           child: Center(
             child: topContentText,
           ),
