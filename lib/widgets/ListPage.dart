@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/DetailPage.dart';
 import 'package:flutter_app/models/Models.dart';
+import 'package:flutter_app/widgets/DetailPage.dart';
+import 'package:flutter_app/widgets/LandingPage.dart';
+import 'package:share/share.dart';
+
 class ListPage extends StatefulWidget {
 
   final List<Mantra> mantras;
@@ -12,6 +15,43 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        {
+          Navigator.pop(context);
+        }
+        break;
+
+      case 1:
+        {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => LandingPage(mantraFile: "telugu.json")),);
+        }
+        break;
+
+      case 2:
+        {
+          Share.share(
+              'నిత్యం చదువుకోవాల్సిన వివిధ మంత్రాల కొరకు మంత్రం సమాహార అప్ ని డౌన్లోడ్  చేసుకొండ');
+        }
+
+        break;
+      default:
+        {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => LandingPage(mantraFile: "telugu.json")),);
+        }
+        break;
+    }
+  }
 
   @override
   void initState() {
@@ -95,47 +135,41 @@ class _ListPageState extends State<ListPage> {
       ),
     );
 
-
-    final makeBottom = Container(
-      height: 55.0,
-      child: BottomAppBar(
-        color: Colors.pink[800],
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.blur_on, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.hotel, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.account_box, color: Colors.white),
-              onPressed: () {},
-            )
-          ],
+    final bottomBar = BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.arrow_back),
+          title: Padding(padding: EdgeInsets.all(0)),
         ),
-      ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Padding(padding: EdgeInsets.all(0)),
+
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.share),
+          title: Padding(padding: EdgeInsets.all(0)),
+
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.pink[800],
+      onTap: _onItemTapped,
     );
+
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.pink[800],
       title: Text(widget.title,
         style: TextStyle(fontFamily:"NTR",color: Colors.white,fontSize: 20, fontWeight: FontWeight.w500),
       ),
-      actions: <Widget>[
+/*      actions: <Widget>[
         IconButton(
           icon: Icon(Icons.list),
           color:Colors.white,
           onPressed: () {},
         )
-      ],
+      ],*/
     );
 
     return Scaffold(
@@ -145,6 +179,7 @@ class _ListPageState extends State<ListPage> {
       appBar: topAppBar,
       body: makeBody
       /*,bottomNavigationBar: makeBottom,*/
+      , bottomNavigationBar: bottomBar,
     );
   }
 }

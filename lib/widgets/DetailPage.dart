@@ -1,9 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/Models.dart';
+import 'package:flutter_app/widgets/LandingPage.dart';
+import 'package:share/share.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Mantra mantra;
+
   DetailPage({Key key, this.mantra}) : super(key: key);
+
+  @override
+  _DetailPage createState() => _DetailPage();
+}
+
+class _DetailPage extends State<DetailPage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        {
+          Navigator.pop(context);
+        }
+        break;
+
+      case 1:
+        {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LandingPage(mantraFile: "telugu.json")),
+          );
+        }
+        break;
+
+      case 2:
+        {
+          Share.share(
+              'నిత్యం చదువుకోవాల్సిన వివిధ మంత్రాల కొరకు మంత్రం సమాహార అప్ ని డౌన్లోడ్  చేసుకొండ');
+        }
+
+        break;
+      default:
+        {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LandingPage(mantraFile: "telugu.json")),
+          );
+        }
+        break;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final topContentText = Column(
@@ -12,9 +69,9 @@ class DetailPage extends StatelessWidget {
         SizedBox(height: 80.0),
         SizedBox(height: 10.0),
         Text(
-          mantra.title,
+          widget.mantra.title,
           style:
-              TextStyle(fontFamily: "NTR", color: Colors.white, fontSize: 30.0),
+          TextStyle(fontFamily: "NTR", color: Colors.white, fontSize: 30.0),
         ),
         Container(
           width: 150.0,
@@ -29,7 +86,7 @@ class DetailPage extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
-                      mantra.subcontent,
+                      widget.mantra.subcontent,
                       style: TextStyle(
                           fontFamily: "NTR",
                           color: Colors.white,
@@ -47,8 +104,8 @@ class DetailPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.5,
             decoration: new BoxDecoration(
               image: new DecorationImage(
-                image: new NetworkImage(mantra.thumbnail),
-               /* image: new AssetImage(mantra.thumbnail),*/
+                image: new NetworkImage(widget.mantra.thumbnail),
+                /* image: new AssetImage(mantra.thumbnail),*/
                 fit: BoxFit.cover,
               ),
             )),
@@ -56,7 +113,8 @@ class DetailPage extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           padding: EdgeInsets.all(10.0),
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)), /* Color.fromRGBO(58, 66, 86, .9)  Color.fromRGBO(173, 20, 87, .9)*/
+          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)),
+          /* Color.fromRGBO(58, 66, 86, .9)  Color.fromRGBO(173, 20, 87, .9)*/
           child: Center(
             child: topContentText,
           ),
@@ -75,7 +133,7 @@ class DetailPage extends StatelessWidget {
     );
 
     final bottomContentText = Text(
-      mantra.content,
+      widget.mantra.content,
       style: TextStyle(fontFamily: "NTR", fontSize: 20.0),
     );
     final bottomContent = Container(
@@ -87,6 +145,26 @@ class DetailPage extends StatelessWidget {
         ),
       ),
     );
+
+    final bottomBar = BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.arrow_back),
+          title: Padding(padding: EdgeInsets.all(0)),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Padding(padding: EdgeInsets.all(0)),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.share),
+          title: Padding(padding: EdgeInsets.all(0)),
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.pink[800],
+      onTap: _onItemTapped,
+    );
     return Scaffold(
 /*
       appBar:topAppBar,
@@ -94,6 +172,7 @@ class DetailPage extends StatelessWidget {
       body: ListView(
         children: <Widget>[topContent, bottomContent],
       ),
+      bottomNavigationBar: bottomBar,
     );
   }
 }

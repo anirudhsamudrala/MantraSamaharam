@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/Models.dart';
 import 'package:flutter_app/widgets/CircleIcon.dart';
@@ -44,12 +45,12 @@ class _LandingPage extends State<LandingPage> {
             title,
             style: TextStyle(fontFamily: 'NTR', color: Colors.white),
           ),
-          actions: <Widget>[
+/*          actions: <Widget>[
             IconButton(
               icon: Icon(Icons.list),
               onPressed: () {},
             )
-          ],
+          ],*/
         ),
         body: Stack(
           children: <Widget>[
@@ -63,7 +64,11 @@ class _LandingPage extends State<LandingPage> {
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
                           return Center(
-                            child: ColorLoader3(radius:30,dotRadius: 10,height:100,width: 100) ,
+                            child: ColorLoader3(
+                                radius: 30,
+                                dotRadius: 10,
+                                height: 100,
+                                width: 100),
                           );
                         default:
                           if (snapshot.hasData) {
