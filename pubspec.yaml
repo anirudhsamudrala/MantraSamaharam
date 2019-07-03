@@ -78,22 +78,9 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-    - family: Raleway
-      fonts:
-        - asset: fonts/Raleway-Regular.ttf
-        - asset: fonts/Raleway-Bold.ttf
-    - family: Montserrat
-      fonts:
-        - asset: fonts/Montserrat-Regular.ttf
     - family: NTR
       fonts:
         - asset: fonts/NTR-Regular.ttf
-    - family: Suranna
-      fonts:
-        - asset: fonts/Suranna-Regular.ttf
-    - family: Mallanna
-      fonts:
-        - asset: fonts/Mallanna-Regular.ttf
 
     # style: bold
   # For details regarding fonts from package dependencies,
