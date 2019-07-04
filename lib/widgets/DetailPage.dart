@@ -14,6 +14,9 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPage extends State<DetailPage> {
   int _selectedIndex = 0;
+  ScrollController _scrollController;
+  bool _isOnTop = true;
+
 
   void _onItemTapped(int index) {
     setState(() {
@@ -59,6 +62,25 @@ class _DetailPage extends State<DetailPage> {
   @override
   void initState() {
     super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  _scrollToTop() {
+    _scrollController.animateTo(_scrollController.position.minScrollExtent,
+        duration: Duration(milliseconds: 1000), curve: Curves.easeIn);
+    setState(() => _isOnTop = true);
+  }
+
+  _scrollToBottom() {
+    _scrollController.animateTo(_scrollController.position.maxScrollExtent,
+        duration: Duration(milliseconds: 1000), curve: Curves.easeOut);
+    setState(() => _isOnTop = false);
   }
 
   @override
@@ -165,12 +187,19 @@ class _DetailPage extends State<DetailPage> {
       selectedItemColor: Colors.pink[800],
       onTap: _onItemTapped,
     );
+
     return Scaffold(
 /*
       appBar:topAppBar,
 */
       body: ListView(
+        controller: _scrollController,
         children: <Widget>[topContent, bottomContent],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _isOnTop ? _scrollToBottom : _scrollToTop,
+        child: Icon(_isOnTop ? Icons.arrow_downward : Icons.arrow_upward),
+        backgroundColor: Colors.pink[700],
       ),
       bottomNavigationBar: bottomBar,
     );
