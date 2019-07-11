@@ -1,11 +1,29 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/LandingPage.dart';
-import 'package:flutter/cupertino.dart';
+/*
+import 'package:firebase_admob/firebase_admob.dart';
+*/
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+/*    FirebaseAdMob.instance.initialize(appId: "ca-app-pub-8151350962727522~3682411401").then((response){
+      myBanner
+        ..load()
+        ..show(
+          // Positions the banner ad 60 pixels from the bottom of the screen
+
+          anchorOffset: 60.0,
+
+          // Banner Position
+          anchorType: AnchorType.bottom,
+        );
+    }
+    );*/
+
     final title = 'మంత్ర సమాహారము';
 
     return MaterialApp(
@@ -13,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(primaryColor: Colors.pinkAccent),
       home:new LandingPage(mantraFile:"telugu.json"),
 
-     /* Scaffold(
+      /* Scaffold(
         *//*    appBar: AppBar(
           title: Text(title, style: TextStyle(color: Colors.black38)),
         ),*/
@@ -65,3 +83,22 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+/*
+
+MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+  keywords: <String>['flutterio', 'beautiful apps'],
+  contentUrl: 'https://flutter.io',
+  childDirected: false,
+  testDevices: <String>[], // Android emulators are considered test devices
+);
+BannerAd myBanner = BannerAd(
+  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
+  // https://developers.google.com/admob/android/test-ads
+  // https://developers.google.com/admob/ios/test-ads
+  adUnitId: BannerAd.testAdUnitId,
+  size: AdSize.smartBanner,
+  targetingInfo: targetingInfo,
+  listener: (MobileAdEvent event) {
+    print("BannerAd event is $event");
+  },
+);*/

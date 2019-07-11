@@ -17,7 +17,6 @@ class _DetailPage extends State<DetailPage> {
   ScrollController _scrollController;
   bool _isOnTop = true;
 
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -43,7 +42,7 @@ class _DetailPage extends State<DetailPage> {
       case 2:
         {
           Share.share(
-              'నిత్యం చదువుకోవాల్సిన వివిధ మంత్రాల కొరకు మంత్రం సమాహార అప్ ని డౌన్లోడ్  చేసుకొండ');
+              'నిత్యం చదువుకోవాల్సిన వివిధ మంత్రాల కొరకు మంత్రం సమాహార అప్');
         }
 
         break;
