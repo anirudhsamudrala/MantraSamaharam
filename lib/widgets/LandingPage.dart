@@ -99,7 +99,7 @@ class _LandingPage extends State<LandingPage> {
                               },
                             );
                           } else {
-                            new CircularProgressIndicator();
+                            return new CircularProgressIndicator();
                           }
                       }
                     }),

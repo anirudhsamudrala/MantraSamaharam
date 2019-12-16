@@ -21,11 +21,11 @@ dependencies:
     sdk: flutter
   sqflite: any
   path_provider: any
-  intl: ^0.15.7
+  intl: ^0.16.0
   path: any
-  flutter_launcher_icons: "^0.7.2"
-  cached_network_image: ^0.8.0
-  share: ^0.6.1+1
+  flutter_launcher_icons: "^0.7.4"
+  cached_network_image: ^2.0.0-rc
+  share: ^0.6.3+5
   # firebase_admob: ^0.9.0+1
 
 flutter_icons:
@@ -80,9 +80,9 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-    - family: NTR
+    - family: Mallanna
       fonts:
-        - asset: fonts/NTR-Regular.ttf
+        - asset: fonts/Mallanna-Regular.ttf
 
     # style: bold
   # For details regarding fonts from package dependencies,
